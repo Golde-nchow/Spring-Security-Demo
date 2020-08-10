@@ -27,4 +27,12 @@ public class LoginController {
     public String index() {
        return "redirect:index.html";
     }
+
+    /**
+     * 首页2
+     */
+    @RequestMapping("index2")
+    public String index2() {
+        return "redirect:mySuccessPage.html";
+    }
 }

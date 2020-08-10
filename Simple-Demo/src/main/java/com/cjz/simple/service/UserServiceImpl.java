@@ -33,8 +33,13 @@ public class UserServiceImpl implements UserDetailsService {
         }
         String passwordFromDataBase = passwordEncoder.encode("123");
         // 设置用户名、密码、角色
+        // true: 可用
+        // true: 没过期
+        // true: 凭证没过期
+        // true: 账号没被锁定
         return new User(username
                 , passwordFromDataBase
+                , true, true, true, true
                 , AuthorityUtils.commaSeparatedStringToAuthorityList("admin, normal"));
     }
 }
