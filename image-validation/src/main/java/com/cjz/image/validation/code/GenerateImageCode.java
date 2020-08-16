@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -75,8 +76,8 @@ public class GenerateImageCode {
         // 获取请求中的验证码
         String code = ServletRequestUtils.getStringParameter(request.getRequest(), "code");
 
-        if (ObjectUtils.isEmpty(imageCode)) {
-            throw new ValidationCodeException("验证码为空");
+        if (StringUtils.isEmpty(code)) {
+            throw new ValidationCodeException("验证码不能为空");
         }
 
         if (imageCode.isExpired()) {
