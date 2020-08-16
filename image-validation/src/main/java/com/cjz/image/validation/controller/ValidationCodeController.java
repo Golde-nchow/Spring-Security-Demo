@@ -27,7 +27,7 @@ public class ValidationCodeController {
     @Autowired
     private GenerateImageCode generateImageCode;
 
-    private static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
+    public static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
 
     /**
      * 用于将信息保存在 session
