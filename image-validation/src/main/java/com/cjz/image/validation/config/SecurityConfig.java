@@ -1,5 +1,6 @@
 package com.cjz.image.validation.config;
 
+import com.cjz.image.validation.filter.ValidationCodeFilter;
 import com.cjz.image.validation.handler.MyLoginFailureHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -7,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * @author: Kam-Chou
@@ -20,11 +22,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyLoginFailureHandler myLoginFailureHandler;
 
+    @Autowired
+    private ValidationCodeFilter validationCodeFilter;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         // 表单提交
-        http.formLogin()
+        http
+            .addFilterBefore(validationCodeFilter, UsernamePasswordAuthenticationFilter.class)
+            .formLogin()
             // 登录页面
             .loginPage("/login")
             // 输入 /login 就会被认为是登录操作，然后使用 UsernameAndPasswordFilter 执行表单登录，并校验逻辑
