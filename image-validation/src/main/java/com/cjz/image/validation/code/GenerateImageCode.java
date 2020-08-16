@@ -1,7 +1,12 @@
 package com.cjz.image.validation.code;
 
+import com.cjz.image.validation.controller.ValidationCodeController;
+import com.cjz.image.validation.exception.ValidationCodeException;
 import lombok.Data;
+import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
@@ -56,6 +61,34 @@ public class GenerateImageCode {
         g.dispose();
 
         return new ImageCode(image, sRand, expireIn);
+    }
+
+    /**
+     * 检验验证码
+     * @param sessionStrategy 存储验证码的 session 策略类
+     * @param request         存储请求信息
+     */
+    public void validate(SessionStrategy sessionStrategy, ServletWebRequest request) throws ValidationCodeException, ServletRequestBindingException {
+        ImageCode imageCode =
+                (ImageCode) sessionStrategy.getAttribute(request, ValidationCodeController.SESSION_KEY);
+
+        // 获取请求中的验证码
+        String code = ServletRequestUtils.getStringParameter(request.getRequest(), "code");
+
+        if (ObjectUtils.isEmpty(imageCode)) {
+            throw new ValidationCodeException("验证码为空");
+        }
+
+        if (imageCode.isExpired()) {
+            throw new ValidationCodeException("验证码已过期");
+        }
+
+        if (!imageCode.getCode().equalsIgnoreCase(code)) {
+            throw new ValidationCodeException("验证码不匹配");
+        }
+
+        // 移除验证码
+        sessionStrategy.removeAttribute(request, ValidationCodeController.SESSION_KEY);
     }
 
     /**
