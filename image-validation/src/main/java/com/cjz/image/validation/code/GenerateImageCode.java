@@ -1,9 +1,11 @@
 package com.cjz.image.validation.code;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
@@ -14,6 +16,7 @@ import java.util.Random;
  * @date 2020/8/16 17:23
  */
 @Data
+@Component
 public class GenerateImageCode {
 
     /**
@@ -22,15 +25,12 @@ public class GenerateImageCode {
      * @param height   高
      * @param length   验证码字符长度
      * @param expireIn 过期时间，秒
-     * @param request  Http请求信息
      * @return         验证码类 {@link com.cjz.image.validation.code.ImageCode}
      */
-    public ImageCode generate(int width, int height, int length, int expireIn, ServletWebRequest request) {
+    public ImageCode generate(int width, int height, int length, int expireIn) {
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
         Graphics g = image.getGraphics();
-
         Random random = new Random();
 
         g.setColor(getRandColor(200, 250));
