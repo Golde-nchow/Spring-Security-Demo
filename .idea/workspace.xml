@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1049f910-4a44-42d5-821f-e1b76a8c7d1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Simple-Demo/src/main/java/com/cjz/simple/handler/MyLoginFailureHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simple-Demo/src/main/java/com/cjz/simple/handler/MyLoginSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/image-validation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/ImageValidationApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validation/src/main/resources/static/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simple-Demo/src/main/java/com/cjz/simple/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simple-Demo/src/main/java/com/cjz/simple/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simple-Demo/target/classes/com/cjz/simple/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simple-Demo/target/classes/com/cjz/simple/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +42,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1fuO4pigpcMuHaMfVo9uDisY14u" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -51,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/image-validation/src/main/resources/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,8 +72,19 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="spring.boot" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cjz.image.validation.controller" />
+      <recent name="com.cjz.image.validation.service" />
+      <recent name="com.cjz.image.validation.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\IDEA_Practise\Spring-Security-Demo\image-validation\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ImageValidationApplication">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -184,6 +205,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImageValidationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="image-validation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cjz.image.validation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cjz.image.validation.ImageValidationApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SimpleDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Simple-Demo" />
       <extension name="coverage">
@@ -261,188 +296,111 @@
       <workItem from="1596026397762" duration="1148000" />
       <workItem from="1596343639361" duration="4359000" />
       <workItem from="1597064327288" duration="10358000" />
-      <workItem from="1597553016219" duration="3963000" />
+      <workItem from="1597553016219" duration="5749000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="313" y="1" key="#ImageValidationApplication" timestamp="1597566969646">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="313" y="1" key="#ImageValidationApplication/0.0.1366.728@0.0.1366.728" timestamp="1597566969646" />
+    <state x="275" y="23" key="#Project_Structure" timestamp="1597566783185">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1597566783185" />
     <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1597554835637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597554835637" />
-    <state width="1323" height="354" key="GridCell.Tab.0.bottom" timestamp="1597565685930">
+    <state width="1323" height="354" key="GridCell.Tab.0.bottom" timestamp="1597567518861">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597565685930" />
-    <state width="1323" height="354" key="GridCell.Tab.0.center" timestamp="1597565685930">
+    <state width="1323" height="354" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597567518861" />
+    <state width="1323" height="354" key="GridCell.Tab.0.center" timestamp="1597567518860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597565685930" />
-    <state width="1323" height="354" key="GridCell.Tab.0.left" timestamp="1597565685930">
+    <state width="1323" height="354" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597567518860" />
+    <state width="1323" height="354" key="GridCell.Tab.0.left" timestamp="1597567518860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597565685930" />
-    <state width="1323" height="354" key="GridCell.Tab.0.right" timestamp="1597565685930">
+    <state width="1323" height="354" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597567518860" />
+    <state width="1323" height="354" key="GridCell.Tab.0.right" timestamp="1597567518861">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597565685930" />
-    <state width="1323" height="354" key="GridCell.Tab.1.bottom" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597567518861" />
+    <state width="1323" height="354" key="GridCell.Tab.1.bottom" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.1.center" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.1.center" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.1.left" timestamp="1597565685930">
+    <state width="1323" height="354" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.1.left" timestamp="1597567518861">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597565685930" />
-    <state width="1323" height="354" key="GridCell.Tab.1.right" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597567518861" />
+    <state width="1323" height="354" key="GridCell.Tab.1.right" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.2.bottom" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.2.bottom" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.2.center" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.2.center" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.2.left" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.2.left" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
-    <state width="1323" height="354" key="GridCell.Tab.2.right" timestamp="1597565685931">
+    <state width="1323" height="354" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
+    <state width="1323" height="354" key="GridCell.Tab.2.right" timestamp="1597567518862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1597565685931" />
+    <state width="1323" height="354" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1597567518862" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1597071523966">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597071523966" />
-    <state x="359" y="97" width="647" height="534" key="find.popup" timestamp="1597565703659">
+    <state x="359" y="97" width="647" height="534" key="find.popup" timestamp="1597565944164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="97" width="647" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597565703659" />
-    <state x="57" y="0" key="new project wizard" timestamp="1597069907592">
+    <state x="359" y="97" width="647" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597565944164" />
+    <state x="25" y="0" key="new project wizard" timestamp="1597566755716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="57" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597069907592" />
+    <state x="25" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597566755716" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1597073591550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597073591550" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597074088941">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597566939971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597074088941" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597566939971" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Simple-Demo</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>Simple-Demo</module>
+        <module>image-validation</module>
     </modules>
 
     <parent>
