@@ -1,6 +1,6 @@
 package com.cjz.image.validation.exception;
 
-import javax.security.sasl.AuthenticationException;
+import org.springframework.security.core.AuthenticationException;
 
 /**
  * @author User
