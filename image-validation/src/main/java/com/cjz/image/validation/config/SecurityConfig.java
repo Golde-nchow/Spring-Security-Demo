@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .authorizeRequests()
             // 允许login.html被所有人访问
-            .antMatchers("/login*").permitAll()
+            .antMatchers("/login*", "code/*").permitAll()
             // 其他请求需要认证
             .anyRequest().authenticated();
 
