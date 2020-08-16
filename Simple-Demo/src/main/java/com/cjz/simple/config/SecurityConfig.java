@@ -1,5 +1,7 @@
 package com.cjz.simple.config;
 
+import com.cjz.simple.handler.MyLoginFailureHandler;
+import com.cjz.simple.handler.MyLoginSuccessHandler;
 import com.cjz.simple.property.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
+    @Autowired
+    private MyLoginFailureHandler myLoginFailureHandler;
+
+    @Autowired
+    private MyLoginSuccessHandler myLoginSuccessHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -30,9 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
             // 登录页面
             .loginPage(loginPage)
-            // 输入 /login 就会被认为是登录操作，然后执行校验逻辑，成功后默认跳转到index.html
+            // 输入 /login 就会被认为是登录操作，然后使用 UsernameAndPasswordFilter 执行表单登录，并校验逻辑
+            // 成功后默认跳转到index2
             .loginProcessingUrl("/login")
             .successForwardUrl("/index2")
+            // 添加自定义的登录成功处理
+            .successHandler(myLoginSuccessHandler)
+            // 添加自定义的登录失败处理
+            .failureHandler(myLoginFailureHandler)
             .and()
             .authorizeRequests()
             // 允许login.html被所有人访问
