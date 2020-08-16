@@ -39,17 +39,19 @@ public class ValidationCodeFilter extends OncePerRequestFilter {
 
         String loginUrl = "/authentication";
         String loginMethod = "POST";
-        StringBuffer requestURL = request.getRequestURL();
+        String requestURI = request.getRequestURI();
         String method = request.getMethod();
 
         // 如果是登录请求，则检验
-        if (loginUrl.contentEquals(requestURL) && loginMethod.equalsIgnoreCase(method)) {
+        if (loginUrl.contentEquals(requestURI) && loginMethod.equalsIgnoreCase(method)) {
             try {
                 generateImageCode.validate(sessionStrategy, new ServletWebRequest(request));
             } catch (ValidationCodeException e) {
 
                 // 执行登录失败逻辑
                 authenticationFailureHandler.onAuthenticationFailure(request, response, e);
+                // 避免继续往下走
+                return;
             }
         }
 
