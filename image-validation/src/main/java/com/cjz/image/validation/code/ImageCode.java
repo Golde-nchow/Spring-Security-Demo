@@ -28,6 +28,13 @@ public class ImageCode {
     private LocalDateTime expireTime;
 
     /**
+     * 检查是否过期
+     */
+    public boolean isExpired() {
+        return LocalDateTime.now().isAfter(expireTime);
+    }
+
+    /**
      * 构造一个过期时间
      * @param bufferedImage 流
      * @param code          验证码
