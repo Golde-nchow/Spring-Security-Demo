@@ -2,10 +2,11 @@ package com.cjz.image.validation.filter;
 
 import com.cjz.image.validation.code.GenerateImageCode;
 import com.cjz.image.validation.exception.ValidationCodeException;
+import com.cjz.image.validation.handler.MyLoginFailureHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -20,10 +21,11 @@ import java.io.IOException;
  * @description 验证码过滤器
  * @date 2020/8/16 18:40
  */
+@Component
 public class ValidationCodeFilter extends OncePerRequestFilter {
 
     @Autowired
-    private AuthenticationFailureHandler authenticationFailureHandler;
+    private MyLoginFailureHandler authenticationFailureHandler;
 
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 
