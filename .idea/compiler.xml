@@ -7,18 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Simple-Demo" />
+        <module name="Remember-Me" />
         <module name="image-validation" />
+        <module name="Simple-Demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="image-validation" target="1.8" />
+      <module name="Remember-Me" target="1.8" />
       <module name="Simple-Demo" target="1.8" />
       <module name="Spring-Security-Demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Remember-Me" options="-parameters" />
       <module name="Simple-Demo" options="-parameters" />
       <module name="image-validation" options="-parameters" />
     </option>

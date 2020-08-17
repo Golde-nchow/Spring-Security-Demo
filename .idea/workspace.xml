@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1049f910-4a44-42d5-821f-e1b76a8c7d1f" name="Default" comment="">
+    <list default="true" id="1049f910-4a44-42d5-821f-e1b76a8c7d1f" name="Default" comment="控制层添加获取验证码的请求">
+      <change afterPath="$PROJECT_DIR$/Remember-Me/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Remember-Me/src/main/java/com/cjz/remember/me/RememberMeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Remember-Me/src/main/java/com/cjz/remember/me/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Remember-Me/src/main/java/com/cjz/remember/me/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Remember-Me/src/main/java/com/cjz/remember/me/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/image-validation/src/main/java/com/cjz/image/validation/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple-Demo/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Remember-Me/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple-Demo/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Remember-Me/src/main/resources/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/image-validation/src/main/resources/static" />
+    <property name="last_opened_file_path" value="G:/IDEA_New_Practise/ExamOnline" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -64,16 +71,21 @@
     <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\IDEA_Practise\Spring-Security-Demo\Remember-Me\src\main\resources\static" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cjz.image.validation.controller" />
-      <recent name="com.cjz.image.validation.service" />
-      <recent name="com.cjz.image.validation.config" />
+      <recent name="com.cjz.remember.me" />
+      <recent name="com.cjz.remember.me.config" />
+      <recent name="com.cjz.remember.me.controller" />
+      <recent name="com.cjz.remember.me.service" />
+      <recent name="com.cjz.image.validation.handler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\IDEA_Practise\Spring-Security-Demo\image-validation\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ImageValidationApplication">
+  <component name="RunManager" selected="Spring Boot.RememberMeApplication">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -208,6 +220,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RememberMeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Remember-Me" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cjz.remember.me.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cjz.remember.me.RememberMeApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SimpleDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Simple-Demo" />
       <extension name="coverage">
@@ -286,7 +312,8 @@
       <workItem from="1596343639361" duration="4359000" />
       <workItem from="1597064327288" duration="10358000" />
       <workItem from="1597553016219" duration="8988000" />
-      <workItem from="1597571086138" duration="2528000" />
+      <workItem from="1597571086138" duration="6946000" />
+      <workItem from="1597672232610" duration="4087000" />
     </task>
     <task id="LOCAL-00001" summary="导入 spring-social，使用 SessionStrategy 保存 session">
       <created>1597572305623</created>
@@ -295,7 +322,91 @@
       <option name="project" value="LOCAL" />
       <updated>1597572305623</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="验证码异常类">
+      <created>1597575174966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1597575174966</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加检验是否过期的方法">
+      <created>1597575344579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597575344579</updated>
+    </task>
+    <task id="LOCAL-00004" summary="添加验证码校验逻辑">
+      <created>1597575632209</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597575632209</updated>
+    </task>
+    <task id="LOCAL-00005" summary="异常类中的基类，是要spring.framework当中的 AuthenticationException">
+      <created>1597575926982</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597575926982</updated>
+    </task>
+    <task id="LOCAL-00006" summary="添加验证码校验过滤器">
+      <created>1597576037684</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576037684</updated>
+    </task>
+    <task id="LOCAL-00007" summary="控制层添加获取验证码的请求">
+      <created>1597576071629</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576071629</updated>
+    </task>
+    <task id="LOCAL-00008" summary="添加登录失败处理器">
+      <created>1597576206629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576206629</updated>
+    </task>
+    <task id="LOCAL-00009" summary="在过滤器使用自定义的登录失败处理器">
+      <created>1597576289451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576289451</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Security配置登录失败处理器">
+      <created>1597576355885</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576355885</updated>
+    </task>
+    <task id="LOCAL-00011" summary="将验证码过滤器放在，校验用户密码过滤器前">
+      <created>1597576534644</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1597576534644</updated>
+    </task>
+    <task id="LOCAL-00012" summary="优化过滤器代码">
+      <created>1597577158578</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1597577158579</updated>
+    </task>
+    <task id="LOCAL-00013" summary="优化校验验证码逻辑">
+      <created>1597577247703</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1597577247703</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,77 +428,98 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="导入 spring-social，使用 SessionStrategy 保存 session" />
-    <option name="LAST_COMMIT_MESSAGE" value="导入 spring-social，使用 SessionStrategy 保存 session" />
+    <MESSAGE value="验证码异常类" />
+    <MESSAGE value="添加检验是否过期的方法" />
+    <MESSAGE value="添加验证码校验逻辑" />
+    <MESSAGE value="异常类中的基类，是要spring.framework当中的 AuthenticationException" />
+    <MESSAGE value="添加验证码校验过滤器" />
+    <MESSAGE value="控制层添加获取验证码的请求" />
+    <MESSAGE value="添加登录失败处理器" />
+    <MESSAGE value="在过滤器添加自定义登录失败处理器" />
+    <MESSAGE value="在过滤器使用自定义的登录失败处理器" />
+    <MESSAGE value="Security配置登录失败处理器" />
+    <MESSAGE value="将验证码过滤器放在，校验用户密码过滤器前" />
+    <MESSAGE value="优化过滤器代码" />
+    <MESSAGE value="优化校验验证码逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化校验验证码逻辑" />
   </component>
   <component name="WindowStateProjectService">
     <state x="313" y="1" key="#ImageValidationApplication" timestamp="1597566969646">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="1" key="#ImageValidationApplication/0.0.1366.728@0.0.1366.728" timestamp="1597566969646" />
-    <state x="275" y="23" key="#Project_Structure" timestamp="1597566783185">
+    <state x="275" y="23" key="#Project_Structure" timestamp="1597707025109">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1597566783185" />
-    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1597570005842">
+    <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1597707025109" />
+    <state x="313" y="1" key="#RememberMeApplication" timestamp="1597707386862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597570005842" />
-    <state x="211" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597571690797">
+    <state x="313" y="1" key="#RememberMeApplication/0.0.1366.728@0.0.1366.728" timestamp="1597707386862" />
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1597575130376">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="211" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1597571690797" />
-    <state x="232" y="0" key="CommitChangelistDialog2" timestamp="1597572304317">
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597575130376" />
+    <state x="211" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597574436663">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="232" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597572304317" />
-    <state width="1323" height="354" key="GridCell.Tab.0.bottom" timestamp="1597573752780">
+    <state x="211" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1597574436663" />
+    <state x="202" y="0" key="CommitChangelistDialog2" timestamp="1597577246464">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597573752780" />
-    <state width="1323" height="354" key="GridCell.Tab.0.center" timestamp="1597573752780">
+    <state x="202" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597577246464" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597673582648">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597573752780" />
-    <state width="1323" height="354" key="GridCell.Tab.0.left" timestamp="1597573752780">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597673582648" />
+    <state width="1323" height="328" key="GridCell.Tab.0.bottom" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597573752780" />
-    <state width="1323" height="354" key="GridCell.Tab.0.right" timestamp="1597573752780">
+    <state width="1323" height="328" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.0.center" timestamp="1597707473787">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597573752780" />
-    <state width="1323" height="354" key="GridCell.Tab.1.bottom" timestamp="1597573752551">
+    <state width="1323" height="328" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597707473787" />
+    <state width="1323" height="328" key="GridCell.Tab.0.left" timestamp="1597707473787">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597573752551" />
-    <state width="1323" height="354" key="GridCell.Tab.1.center" timestamp="1597573752551">
+    <state width="1323" height="328" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597707473787" />
+    <state width="1323" height="328" key="GridCell.Tab.0.right" timestamp="1597707473787">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597573752551" />
-    <state width="1323" height="354" key="GridCell.Tab.1.left" timestamp="1597573752551">
+    <state width="1323" height="328" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597707473787" />
+    <state width="1323" height="328" key="GridCell.Tab.1.bottom" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597573752551" />
-    <state width="1323" height="354" key="GridCell.Tab.1.right" timestamp="1597573752551">
+    <state width="1323" height="328" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.1.center" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597573752551" />
-    <state width="1323" height="354" key="GridCell.Tab.2.bottom" timestamp="1597573752552">
+    <state width="1323" height="328" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.1.left" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597573752552" />
-    <state width="1323" height="354" key="GridCell.Tab.2.center" timestamp="1597573752552">
+    <state width="1323" height="328" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.1.right" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1597573752552" />
-    <state width="1323" height="354" key="GridCell.Tab.2.left" timestamp="1597573752551">
+    <state width="1323" height="328" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.2.bottom" timestamp="1597707473789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1597573752551" />
-    <state width="1323" height="354" key="GridCell.Tab.2.right" timestamp="1597573752552">
+    <state width="1323" height="328" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597707473789" />
+    <state width="1323" height="328" key="GridCell.Tab.2.center" timestamp="1597707473788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="354" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1597573752552" />
+    <state width="1323" height="328" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.2.left" timestamp="1597707473788">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="328" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1597707473788" />
+    <state width="1323" height="328" key="GridCell.Tab.2.right" timestamp="1597707473789">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="328" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1597707473789" />
     <state x="137" y="10" key="SettingsEditor" timestamp="1597568359451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -396,18 +528,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="359" y="97" width="647" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597568147190" />
-    <state x="25" y="0" key="new project wizard" timestamp="1597566755716">
+    <state x="46" y="12" key="new project wizard" timestamp="1597707002885">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="25" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597566755716" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1597073591550">
+    <state x="46" y="12" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597707002885" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1597576855156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597073591550" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597566939971">
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597576855156" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597575811955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597566939971" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597575811955" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
