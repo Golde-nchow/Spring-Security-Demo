@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "cjz.security",
+      "type": "com.cjz.simple.property.SecurityProperties",
+      "sourceType": "com.cjz.simple.property.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cjz.security.browser",
+      "type": "com.cjz.simple.property.BrowserProperties",
+      "description": "封装 cjz.security.browser.loginPage 的值 若属性变量名为 browserProperties，则改为 cjz.security.browser-properties.loginPage 记得！！记得！！记得！！",
+      "sourceType": "com.cjz.simple.property.SecurityProperties"
+    }
+  ],
+  "hints": []
+}
