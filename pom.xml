@@ -8,6 +8,7 @@
         <module>Simple-Demo</module>
         <module>image-validation</module>
         <module>Remember-Me</module>
+        <module>sms-validation</module>
     </modules>
 
     <parent>
