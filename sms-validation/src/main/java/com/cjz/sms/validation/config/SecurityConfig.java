@@ -33,8 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 登录页面
                 .loginPage("/login")
                 // 输入 /login 就会被认为是登录操作，然后使用 UsernameAndPasswordFilter 执行表单登录，并校验逻辑
+                // 就是因为这个，导致无法进行验证码判断，TMD
                 // 成功后默认跳转到index2
-                .loginProcessingUrl("/authentication/sms")
+//                .loginProcessingUrl("/authentication/sms")
                 .successForwardUrl("/index")
                 .and()
             .authorizeRequests()
