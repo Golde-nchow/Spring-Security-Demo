@@ -9,6 +9,7 @@
         <module>image-validation</module>
         <module>Remember-Me</module>
         <module>sms-validation</module>
+        <module>QQ-Login</module>
     </modules>
 
     <parent>
