@@ -11,5 +11,13 @@
 
     <artifactId>QQ-Login</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.59</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
