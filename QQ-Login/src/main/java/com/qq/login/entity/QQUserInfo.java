@@ -21,6 +21,11 @@ public class QQUserInfo {
     private String msg;
 
     /**
+     * 唯一识别的码
+     */
+    private String openId;
+
+    /**
      * 用户在QQ空间的昵称。
      */
     private String nickname;

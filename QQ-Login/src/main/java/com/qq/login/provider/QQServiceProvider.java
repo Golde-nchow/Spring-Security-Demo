@@ -10,7 +10,7 @@ import org.springframework.social.oauth2.OAuth2Template;
  * @description 服务提供商
  * @date 2020/8/28 22:02
  */
-public class QQServiceProvider extends AbstractOAuth2ServiceProvider<BaseQQ> {
+public class QQServiceProvider extends AbstractOAuth2ServiceProvider<QQ> {
 
     private String appId;
 
