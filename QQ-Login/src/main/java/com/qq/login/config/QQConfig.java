@@ -1,9 +1,11 @@
 package com.qq.login.config;
 
 import com.qq.login.factory.QQConnectionFactory;
+import com.qq.login.holder.CurrentUserHolder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.social.UserIdSource;
 import org.springframework.social.config.annotation.ConnectionFactoryConfigurer;
 import org.springframework.social.config.annotation.SocialConfigurerAdapter;
 import org.springframework.social.connect.ConnectionFactory;
@@ -32,6 +34,11 @@ public class QQConfig extends SocialConfigurerAdapter {
     @Override
     public void addConnectionFactories(ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment environment) {
         connectionFactoryConfigurer.addConnectionFactory(createConnectionFactory());
+    }
+
+    @Override
+    public UserIdSource getUserIdSource() {
+        return new CurrentUserHolder();
     }
 
     /**
