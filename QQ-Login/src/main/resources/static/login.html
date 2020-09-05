@@ -5,11 +5,8 @@
     <title>登录页面</title>
 </head>
 <body>
-    <form action="/authentication" method="post">
-        用户名：<input type="text" name="username"/><br>
-        密码：<input type="password" name="password"/><br>
-        记住我：<input type="checkbox" name="remember-me" value="true">
-        <input type="submit" value="登录">
-    </form>
+    使用了 /auth 开头的就会被 social 拦截器处理
+    <br/>
+    <a href="/auth/qq">QQ登录</a>
 </body>
 </html>

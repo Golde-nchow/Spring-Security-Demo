@@ -102,5 +102,8 @@
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.social:spring-social-config:1.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.social:spring-social-core:1.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-security:1.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.9" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.20" level="project" />
   </component>
 </module>
