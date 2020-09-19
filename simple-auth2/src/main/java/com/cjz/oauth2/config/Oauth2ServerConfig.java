@@ -40,7 +40,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("all")
                 // 可以用密码、客户端、refresh_token进行刷新
                 .authorizedGrantTypes("password","client_credentials","refresh_token")
-                .authorities("ROLE_UER")
                 .secret(passwordEncoder.encode("cjz"))
                 .redirectUris("http://www.example.com");
     }
