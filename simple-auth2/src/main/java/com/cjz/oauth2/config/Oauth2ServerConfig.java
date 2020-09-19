@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
  * @author KamChou
@@ -29,16 +30,23 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints.authenticationManager(authenticationManager);
     }
 
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) {
+        //允许表单提交
+        security.allowFormAuthenticationForClients()
+                .checkTokenAccess("isAuthenticated()");
+    }
+
     /**
-     * oauth2的参数配置
+     * oauth2的参数配置-密码模式
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("cjz")
                 .scopes("all")
-                // 可以用密码、客户端、refresh_token进行刷新
-                .authorizedGrantTypes("password","client_credentials","refresh_token")
+                // 可以用密码、客户端、refresh_token、授权模式（仅获取code，需code换token）进行刷新
+                .authorizedGrantTypes("password","client_credentials","refresh_token", "authorization_code")
                 .secret(passwordEncoder.encode("cjz"))
                 .redirectUris("http://www.example.com");
     }

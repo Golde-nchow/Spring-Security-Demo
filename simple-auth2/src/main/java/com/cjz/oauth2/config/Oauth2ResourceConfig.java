@@ -9,6 +9,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @date 2020/9/19 19:05
  */
 @Configuration
-@EnableResourceServer
+//@EnableResourceServer
 public class Oauth2ResourceConfig {
 }
