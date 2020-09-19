@@ -30,13 +30,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints.authenticationManager(authenticationManager);
     }
 
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) {
-        //允许表单提交
-        security.allowFormAuthenticationForClients()
-                .checkTokenAccess("isAuthenticated()");
-    }
-
     /**
      * oauth2的参数配置-密码模式
      */
