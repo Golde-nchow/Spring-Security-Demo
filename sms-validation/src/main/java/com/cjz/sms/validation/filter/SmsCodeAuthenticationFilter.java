@@ -43,7 +43,7 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
         }
         username = username.trim();
         SmsAuthenticationToken authRequest = new SmsAuthenticationToken(username);
-        // Allow subclasses to set the "details" property
+        // Allow subclasses to set the "details" com.cjz.oauth2.property
         setDetails(request, authRequest);
         return this.getAuthenticationManager().authenticate(authRequest);
     }
