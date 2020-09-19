@@ -21,10 +21,10 @@ public class QQConfig extends SocialConfigurerAdapter {
     @Value("${social.qq.providerId}")
     private String providerId;
 
-    @Value("${social.qq.providerId}")
+    @Value("${social.qq.appId}")
     private String appId;
 
-    @Value("${social.qq.providerId}")
+    @Value("${social.qq.appSecret}")
     private String appSecret;
 
     /**
