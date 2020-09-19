@@ -12,6 +12,6 @@ public class BrowserProperties {
     /**
      * 如果没有配置，则使用默认的登录页面
      */
-    private String loginPage = "/login*";
+    private String loginPage = "/login.html";
 
 }
