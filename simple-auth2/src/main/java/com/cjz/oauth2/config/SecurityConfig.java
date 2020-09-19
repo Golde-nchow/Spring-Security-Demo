@@ -6,6 +6,7 @@ import com.cjz.oauth2.property.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -43,15 +44,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .loginProcessingUrl("/login")
             .successForwardUrl("/index")
             // 添加自定义的登录成功处理
-            // .successHandler(myLoginSuccessHandler)
+            .successHandler(myLoginSuccessHandler)
             // 添加自定义的登录失败处理
-             .failureHandler(myLoginFailureHandler)
+            .failureHandler(myLoginFailureHandler)
             .and()
             .authorizeRequests()
             // 允许login.html被所有人访问
-            .antMatchers(loginPage).permitAll()
+            .antMatchers(loginPage, "/oauth/token")
+            .permitAll()
             // 其他请求需要认证
-            .anyRequest().authenticated();
+            .anyRequest()
+            .authenticated();
 
         // 如果不想要表单提交，则使用 http.basic() 实现弹窗登录
 
@@ -62,6 +65,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
 }
