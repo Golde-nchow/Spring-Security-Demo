@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import sms.oauth2.redis.filter.ValidationCodeFilter;
+import sms.oauth2.redis.handler.MyLoginFailureHandler;
+import sms.oauth2.redis.handler.MyLoginSuccessHandler;
 
 /**
  * @author: Kam-Chou
@@ -21,6 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private ValidationCodeFilter validationCodeFilter;
+
+    @Autowired
+    private MyLoginFailureHandler myLoginFailureHandler;
+
+    @Autowired
+    private MyLoginSuccessHandler myLoginSuccessHandler;
 
     @Autowired
     private SmsAuthenticationSecurityConfig smsAuthenticationSecurityConfig;
@@ -38,6 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 成功后默认跳转到index2
 //                .loginProcessingUrl("/authentication/sms")
                 .successForwardUrl("/index")
+                // 添加自定义的登录成功处理
+                .successHandler(myLoginSuccessHandler)
+                // 添加自定义的登录失败处理
+                .failureHandler(myLoginFailureHandler)
                 .and()
             .authorizeRequests()
                 // 允许login.html被所有人访问

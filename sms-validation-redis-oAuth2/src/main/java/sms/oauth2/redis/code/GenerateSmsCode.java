@@ -26,7 +26,7 @@ public class GenerateSmsCode {
      * redisValidateCodeRepository
      */
     @Autowired
-    @Qualifier("sessionValidateCodeRepository")
+    @Qualifier("redisValidateCodeRepository")
     private ValidateCodeRepository validateCodeRepository;
 
     /**

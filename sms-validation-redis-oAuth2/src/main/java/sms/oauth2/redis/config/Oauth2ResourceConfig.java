@@ -54,7 +54,7 @@ public class Oauth2ResourceConfig extends ResourceServerConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // 允许login.html被所有人访问
-                .antMatchers(loginPage)
+                .antMatchers("login*", "/code/sms", "/authentication/sms")
                 .permitAll()
                 // 其他请求需要认证
                 .anyRequest()

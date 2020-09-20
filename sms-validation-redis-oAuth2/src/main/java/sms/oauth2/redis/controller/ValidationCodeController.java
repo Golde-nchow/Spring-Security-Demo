@@ -32,7 +32,7 @@ public class ValidationCodeController {
     private SmsCodeSender smsCodeSender;
 
     @Autowired
-    @Qualifier("sessionValidateCodeRepository")
+    @Qualifier("redisValidateCodeRepository")
     private ValidateCodeRepository validateCodeRepository;
 
     @GetMapping("sms")
