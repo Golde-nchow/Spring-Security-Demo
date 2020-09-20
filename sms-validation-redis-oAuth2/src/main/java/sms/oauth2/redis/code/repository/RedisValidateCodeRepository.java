@@ -1,8 +1,12 @@
 package sms.oauth2.redis.code.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 import sms.oauth2.redis.code.ValidateCode;
@@ -10,6 +14,7 @@ import sms.oauth2.redis.code.ValidateCodeRepository;
 import sms.oauth2.redis.code.ValidateCodeType;
 import sms.oauth2.redis.exception.ValidationCodeException;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,8 +25,16 @@ import java.util.concurrent.TimeUnit;
 @Component("redisValidateCodeRepository")
 public class RedisValidateCodeRepository implements ValidateCodeRepository {
 
-    @Autowired
+    @Resource(name = "redisStringTemplate")
     private RedisTemplate<Object, Object> redisTemplate;
+
+    @Bean("redisStringTemplate")
+    public RedisTemplate<Object, Object> redisStringTemplate(RedisConnectionFactory factory) {
+        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(factory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        return redisTemplate;
+    }
 
     /**
      * 保存验证码
@@ -37,7 +50,7 @@ public class RedisValidateCodeRepository implements ValidateCodeRepository {
     @Override
     public ValidateCode get(ServletWebRequest request, ValidateCodeType type) {
         Object value = redisTemplate.opsForValue().get(buildKey(request, type));
-        if (value == null) {
+        if (ObjectUtils.isEmpty(value)) {
             return null;
         }
         return (ValidateCode) value;

@@ -34,7 +34,7 @@ public class ValidationCodeFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        String loginUrl = "/authentication/mobile";
+        String loginUrl = "/authentication/sms";
         String loginMethod = "POST";
         String requestURI = request.getRequestURI();
         String method = request.getMethod();

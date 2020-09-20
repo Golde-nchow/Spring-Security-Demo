@@ -30,6 +30,9 @@ public class Oauth2ResourceConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private MyLoginSuccessHandler myLoginSuccessHandler;
 
+    @Autowired
+    private SmsAuthenticationSecurityConfig smsAuthenticationSecurityConfig;
+
     /**
      * 配置拦截的请求，配置和 SecurityConfig 一致
      */
@@ -63,6 +66,6 @@ public class Oauth2ResourceConfig extends ResourceServerConfigurerAdapter {
         // 如果不想要表单提交，则使用 http.basic() 实现弹窗登录
 
         // 关闭 csrf 过滤
-        http.csrf().disable();
+        http.csrf().disable().apply(smsAuthenticationSecurityConfig);;
     }
 }

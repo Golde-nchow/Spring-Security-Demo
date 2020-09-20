@@ -51,7 +51,7 @@ public class GenerateSmsCode {
      */
     public void validate(ServletWebRequest request) throws ValidationCodeException, ServletRequestBindingException {
         // 获取验证码
-        SmsCode smsCode = (SmsCode) validateCodeRepository.get(request, ValidateCodeType.IMAGE);
+        SmsCode smsCode = (SmsCode) validateCodeRepository.get(request, ValidateCodeType.SMS);
 
         // 获取请求中的验证码
         String code = ServletRequestUtils.getStringParameter(request.getRequest(), "smsCode");

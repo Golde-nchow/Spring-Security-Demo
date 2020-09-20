@@ -2,6 +2,7 @@ package sms.oauth2.redis.code;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
  * @date 2020/9/20 14:43
  */
 @Data
-public class ValidateCode {
+public class ValidateCode implements Serializable {
 
     private static final long serialVersionUID = 1588203828504660915L;
 
