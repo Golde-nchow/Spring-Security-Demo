@@ -11,7 +11,8 @@
         <module>sms-validation</module>
         <module>QQ-Login</module>
         <module>simple-auth2</module>
-        <module>Smiple-Demo-Oauth2</module>
+        <module>Simple-Demo-Oauth2</module>
+        <module>sms-validation-redis-oAuth2</module>
     </modules>
 
     <parent>
@@ -32,6 +33,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!-- spring-web -->
         <dependency>

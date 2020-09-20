@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>Smiple-Demo-Oauth2</artifactId>
+  <artifactId>Simple-Demo-Oauth2</artifactId>
   <packaging>war</packaging>
 
   <name>Simple-Demo-Oauth2 Maven Webapp</name>
