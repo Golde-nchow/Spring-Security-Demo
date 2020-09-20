@@ -26,7 +26,7 @@ public class GenerateSmsCode {
      * @param expireIn 过期时间，秒
      * @return         验证码类 {@link SmsCode}
      */
-    public SmsCode generate(int length, int expireIn) {
+    public ValidateCode generate(int length, int expireIn) {
         Random random = new Random();
         StringBuilder sRand = new StringBuilder();
         for (int i = 0; i < length; i++) {
@@ -42,7 +42,7 @@ public class GenerateSmsCode {
      * @param request         存储请求信息
      */
     public void validate(SessionStrategy sessionStrategy, ServletWebRequest request) throws ValidationCodeException, ServletRequestBindingException {
-        SmsCode imageCode =
+        SmsCode smsCode =
                 (SmsCode) sessionStrategy.getAttribute(request, ValidationCodeController.SESSION_KEY);
 
         // 获取请求中的验证码
@@ -52,15 +52,15 @@ public class GenerateSmsCode {
             throw new ValidationCodeException("验证码不能为空");
         }
 
-        if (ObjectUtils.isEmpty(imageCode)) {
+        if (ObjectUtils.isEmpty(smsCode)) {
             throw new ValidationCodeException("验证码不存在");
         }
 
-        if (imageCode.isExpired()) {
+        if (smsCode.isExpired()) {
             throw new ValidationCodeException("验证码已过期");
         }
 
-        if (!imageCode.getCode().equalsIgnoreCase(code)) {
+        if (!smsCode.getCode().equalsIgnoreCase(code)) {
             throw new ValidationCodeException("验证码不匹配");
         }
 

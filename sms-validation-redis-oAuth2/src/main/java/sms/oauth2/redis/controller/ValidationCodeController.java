@@ -14,6 +14,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import sms.oauth2.redis.code.GenerateSmsCode;
 import sms.oauth2.redis.code.SmsCode;
 import sms.oauth2.redis.code.SmsCodeSender;
+import sms.oauth2.redis.code.ValidateCode;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +48,7 @@ public class ValidationCodeController {
     public void getSmsCode(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletRequestBindingException {
 
         // 生成短信验证码
-        SmsCode smsCode = generateSmsCode.generate(6, 120);
+        ValidateCode smsCode = generateSmsCode.generate(6, 120);
         // 把验证码设置到 request 中
         sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY, smsCode);
         // 从 request 中取出手机号码

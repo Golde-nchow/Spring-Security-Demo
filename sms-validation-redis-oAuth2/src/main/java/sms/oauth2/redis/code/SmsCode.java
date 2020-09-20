@@ -1,40 +1,18 @@
 package sms.oauth2.redis.code;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
 /**
  * 短信验证码类
  * @author Kamchou
  */
-@Data
-public class SmsCode {
+public class SmsCode extends ValidateCode {
 
-    /**
-     * 验证码
-     */
-    private String code;
-
-    /**
-     * 过期时间
-     */
-    private LocalDateTime expireTime;
-
-    /**
-     * 检查是否过期
-     */
-    public boolean isExpired() {
-        return LocalDateTime.now().isAfter(expireTime);
+    public SmsCode(String code, int expireIn) {
+        super(code, expireIn);
     }
 
-    /**
-     * 构造一个过期时间
-     * @param code          验证码
-     * @param expireIn      多少秒内过期
-     */
-    public SmsCode(String code, long expireIn) {
-        this.code = code;
-        this.expireTime = LocalDateTime.now().plusSeconds(expireIn);
+    public SmsCode(String code, LocalDateTime expireTime) {
+        super(code, expireTime);
     }
 }
