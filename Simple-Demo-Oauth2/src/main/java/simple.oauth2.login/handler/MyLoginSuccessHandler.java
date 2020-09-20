@@ -4,14 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
 import org.springframework.security.oauth2.provider.*;
+import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationConverter;
 import org.springframework.stereotype.Component;
@@ -30,15 +33,15 @@ public class MyLoginSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private ClientDetailsService clientDetailsService;
+
+    @Autowired
+    private AuthorizationServerTokenServices authorizationServerTokenServices;
+
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     private BasicAuthenticationConverter authenticationConverter = new BasicAuthenticationConverter();
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private ClientDetailsService clientDetailsService;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
@@ -70,10 +73,11 @@ public class MyLoginSuccessHandler implements AuthenticationSuccessHandler {
 
         TokenRequest tokenRequest = new TokenRequest(new HashMap<>(), username, clientDetails.getScope(), "password");
         OAuth2Request oAuth2Request = tokenRequest.createOAuth2Request(clientDetails);
-        // 最终的带有 accessToken 以及其他信息的 token
         OAuth2Authentication oAuth2Authentication = new OAuth2Authentication(oAuth2Request, authentication);
+        // 最终的带有 accessToken 以及其他信息的 token
+        OAuth2AccessToken accessToken = authorizationServerTokenServices.createAccessToken(oAuth2Authentication);
 
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(objectMapper.writeValueAsString(oAuth2Request));
+        response.getWriter().write(objectMapper.writeValueAsString(accessToken));
     }
 }
