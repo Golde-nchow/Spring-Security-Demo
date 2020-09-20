@@ -1,7 +1,5 @@
 package sms.oauth2.redis.code;
 
-import com.cjz.sms.validation.controller.ValidationCodeController;
-import com.cjz.sms.validation.exception.ValidationCodeException;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -9,6 +7,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
+import sms.oauth2.redis.controller.ValidationCodeController;
+import sms.oauth2.redis.exception.ValidationCodeException;
 
 import java.util.Random;
 

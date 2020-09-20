@@ -1,14 +1,15 @@
 package sms.oauth2.redis.filter;
 
-import com.cjz.sms.validation.code.GenerateSmsCode;
-import com.cjz.sms.validation.exception.ValidationCodeException;
-import com.cjz.sms.validation.handler.MyLoginFailureHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
+import sms.oauth2.redis.code.GenerateSmsCode;
+import sms.oauth2.redis.exception.ValidationCodeException;
+import sms.oauth2.redis.handler.MyLoginFailureHandler;
+import sms.oauth2.redis.handler.MyLoginSuccessHandler;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -26,6 +27,9 @@ public class ValidationCodeFilter extends OncePerRequestFilter {
 
     @Autowired
     private MyLoginFailureHandler authenticationFailureHandler;
+
+    @Autowired
+    private MyLoginSuccessHandler authenticationSuccessHandler;
 
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 

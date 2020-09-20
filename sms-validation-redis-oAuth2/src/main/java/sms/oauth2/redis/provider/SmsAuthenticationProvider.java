@@ -1,6 +1,5 @@
 package sms.oauth2.redis.provider;
 
-import com.cjz.sms.validation.token.SmsAuthenticationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -11,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import sms.oauth2.redis.token.SmsAuthenticationToken;
 
 /**
  * @author User
