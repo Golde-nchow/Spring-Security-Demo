@@ -11,6 +11,7 @@
         <module>sms-validation</module>
         <module>QQ-Login</module>
         <module>simple-auth2</module>
+        <module>Smiple-Demo-Oauth2</module>
     </modules>
 
     <parent>
