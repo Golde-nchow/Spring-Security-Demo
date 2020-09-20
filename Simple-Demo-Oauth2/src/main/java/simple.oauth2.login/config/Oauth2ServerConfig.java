@@ -19,9 +19,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
     private AuthenticationManager authenticationManager;
 
     @Override
@@ -39,7 +36,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("all")
                 // 可以用密码、客户端、refresh_token、授权模式（仅获取code，需code换token）进行刷新
                 .authorizedGrantTypes("password","client_credentials","refresh_token", "authorization_code")
-                .secret(passwordEncoder.encode("cjz"))
+                .secret("123456")
                 .redirectUris("http://www.example.com");
     }
 }
