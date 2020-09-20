@@ -1,8 +1,6 @@
 package sms.oauth2.redis.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.connect.web.HttpSessionSessionStrategy;
-import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -29,11 +27,6 @@ public class ValidationCodeFilter extends OncePerRequestFilter {
     private MyLoginFailureHandler authenticationFailureHandler;
 
     @Autowired
-    private MyLoginSuccessHandler authenticationSuccessHandler;
-
-    private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
-
-    @Autowired
     private GenerateSmsCode generateImageCode;
 
     @Override
@@ -49,7 +42,7 @@ public class ValidationCodeFilter extends OncePerRequestFilter {
         // 如果是登录请求，则检验
         if (loginUrl.contentEquals(requestURI) && loginMethod.equalsIgnoreCase(method)) {
             try {
-                generateImageCode.validate(sessionStrategy, new ServletWebRequest(request));
+                generateImageCode.validate(new ServletWebRequest(request));
             } catch (ValidationCodeException e) {
 
                 System.out.println("报错：" + e.getMessage());

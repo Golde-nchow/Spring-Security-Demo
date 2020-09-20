@@ -1,13 +1,13 @@
 package sms.oauth2.redis.code;
 
-import org.springframework.social.connect.web.SessionStrategy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
-import sms.oauth2.redis.controller.ValidationCodeController;
 import sms.oauth2.redis.exception.ValidationCodeException;
 
 import java.util.Random;
@@ -19,6 +19,15 @@ import java.util.Random;
  */
 @Component
 public class GenerateSmsCode {
+
+    /**
+     * 验证码存储器，可以使用：
+     * sessionValidateCodeRepository
+     * redisValidateCodeRepository
+     */
+    @Autowired
+    @Qualifier("sessionValidateCodeRepository")
+    private ValidateCodeRepository validateCodeRepository;
 
     /**
      * 生成短信验证码
@@ -38,12 +47,11 @@ public class GenerateSmsCode {
 
     /**
      * 检验验证码
-     * @param sessionStrategy 存储验证码的 session 策略类
      * @param request         存储请求信息
      */
-    public void validate(SessionStrategy sessionStrategy, ServletWebRequest request) throws ValidationCodeException, ServletRequestBindingException {
-        SmsCode smsCode =
-                (SmsCode) sessionStrategy.getAttribute(request, ValidationCodeController.SESSION_KEY);
+    public void validate(ServletWebRequest request) throws ValidationCodeException, ServletRequestBindingException {
+        // 获取验证码
+        SmsCode smsCode = (SmsCode) validateCodeRepository.get(request, ValidateCodeType.IMAGE);
 
         // 获取请求中的验证码
         String code = ServletRequestUtils.getStringParameter(request.getRequest(), "smsCode");
@@ -65,7 +73,7 @@ public class GenerateSmsCode {
         }
 
         // 移除验证码
-        sessionStrategy.removeAttribute(request, ValidationCodeController.SESSION_KEY);
+        validateCodeRepository.remove(request, ValidateCodeType.SMS);
     }
 
 }

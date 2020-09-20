@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
  */
 public class SmsCode extends ValidateCode {
 
+    public SmsCode(String code) {
+        super(code, 1000);
+    }
+
     public SmsCode(String code, int expireIn) {
         super(code, expireIn);
     }
