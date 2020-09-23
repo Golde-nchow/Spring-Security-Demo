@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 /**
  * @author KamChou
@@ -22,6 +23,12 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     private AuthenticationManager authenticationManager;
 
     /**
+     * 如果 reids 配置生效，则没有该 jwt 的 bean
+     */
+    @Autowired(required = false)
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+
+    /**
      * token存储方式
      */
     @Autowired
@@ -32,6 +39,11 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints
                 .tokenStore(tokenStore)
                 .authenticationManager(authenticationManager);
+
+        // token 转换类
+        if (jwtAccessTokenConverter != null) {
+            endpoints.accessTokenConverter(jwtAccessTokenConverter);
+        }
     }
 
     /**

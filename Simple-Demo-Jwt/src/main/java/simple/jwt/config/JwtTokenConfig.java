@@ -1,6 +1,7 @@
 package simple.jwt.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -12,6 +13,7 @@ import simple.jwt.properties.SecurityProperties;
  * @date 2020/9/23 23:05
  */
 @Configuration
+@ConditionalOnProperty(prefix = "cjz.security.oauth2", name = "storeType", havingValue = "jwt", matchIfMissing = true)
 public class JwtTokenConfig {
 
     @Autowired
