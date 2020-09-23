@@ -21,4 +21,6 @@ public class SecurityProperties {
      */
     private BrowserProperties browser = new BrowserProperties();
 
+    private Oauth2Properties oauth2Properties = new Oauth2Properties();
+
 }
