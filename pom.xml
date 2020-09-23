@@ -13,6 +13,7 @@
         <module>simple-auth2</module>
         <module>Simple-Demo-Oauth2</module>
         <module>sms-validation-redis-oAuth2</module>
+        <module>Simple-Demo-Jwt</module>
     </modules>
 
     <parent>
