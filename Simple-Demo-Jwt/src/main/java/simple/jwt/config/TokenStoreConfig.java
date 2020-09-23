@@ -32,7 +32,7 @@ public class TokenStoreConfig {
 
     /**
      * 存储在 jwt 中
-     * 如果配置文件中不存在 cjz.security.oauth2.storeType = jwt 时，使用下面配置进行存储
+     * 如果配置文件中不存在 cjz.security.oauth2.storeType = jwt 时，或者为jwt时，使用下面配置进行存储
      */
     @Bean
     @ConditionalOnProperty(prefix = "cjz.security.oauth2", name = "storeType", havingValue = "jwt", matchIfMissing = true)
