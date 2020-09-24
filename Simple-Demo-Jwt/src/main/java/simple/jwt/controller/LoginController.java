@@ -1,7 +1,11 @@
 package simple.jwt.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author: Kam-Chou
@@ -18,6 +22,15 @@ public class LoginController {
     @RequestMapping("login")
     public String loginPage() {
         return "redirect:login.html";
+    }
+
+    /**
+     * 获取用户信息
+     */
+    @ResponseBody
+    @RequestMapping("me")
+    public Object getMe(Authentication authentication) {
+        return authentication;
     }
 
     /**

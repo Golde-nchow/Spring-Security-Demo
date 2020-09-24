@@ -8,8 +8,13 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author KamChou
@@ -33,6 +38,12 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     /**
+     * jwt 增强器
+     */
+    @Autowired(required = false)
+    private TokenEnhancer tokenEnhancer;
+
+    /**
      * token存储方式
      */
     @Autowired
@@ -45,8 +56,17 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .authenticationManager(authenticationManager);
 
         // token 转换类
-        if (jwtAccessTokenConverter != null) {
-            endpoints.accessTokenConverter(jwtAccessTokenConverter);
+        if (jwtAccessTokenConverter != null && tokenEnhancer != null) {
+            // jwt 增强器链
+            TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+            List<TokenEnhancer> enhancers = new ArrayList<>();
+            enhancers.add(tokenEnhancer);
+            enhancers.add(jwtAccessTokenConverter);
+            tokenEnhancerChain.setTokenEnhancers(enhancers);
+
+            endpoints
+                    .tokenEnhancer(tokenEnhancerChain)
+                    .accessTokenConverter(jwtAccessTokenConverter);
         }
     }
 
