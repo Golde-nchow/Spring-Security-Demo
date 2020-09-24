@@ -3,6 +3,7 @@ package simple.jwt.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -21,6 +22,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     /**
      * 如果 reids 配置生效，则没有该 jwt 的 bean
@@ -56,7 +60,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("all")
                 // 可以用密码、客户端、refresh_token、授权模式（仅获取code，需code换token）进行刷新
                 .authorizedGrantTypes("password","client_credentials","refresh_token", "authorization_code")
-                .secret("123456")
+                .secret(passwordEncoder.encode("cjz"))
                 .redirectUris("http://www.example.com");
     }
 }
